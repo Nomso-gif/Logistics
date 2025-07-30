@@ -50,39 +50,32 @@ const CountUpNumber = ({ target, duration = 1000 }) => {
 };
 
 const HeroSection = () => {
-  const { darkMode } = useContext(ThemeContext);
+  // const { darkMode } = useContext(ThemeContext);
 
   return (
     <>
-      {/* Hero Section */}
       <section
         id="home"
-        className="relative h-[545px] overflow-hidden bg-slate-900 w-full"
+        className="relative h-[845px] sm:h-[545px] md:h-[435px] lg:h-[570px] [@media(min-width:1024px)_and_(max-width:1279px)]:h-[645px] overflow-hidden bg-slate-900 w-full"
       >
-        <div className="absolute top-0 left-0 w-full h-[408px] -skew-y-4 bg-slate-600 origin-top-left z-0"></div>
-
+        <div className="absolute top-0 left-0 w-full h-[308px] sm:h-[345px] md:h-[390px] [@media(min-width:768px)_and_(max-width:1023px)]:h-[300px] -skew-y-5 bg-slate-600 origin-top-left z-0"></div>
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between w-full h-full px-6 py-8 md:py-0">
-          {/* Left: Text */}
-          <div className="flex flex-col justify-center h-full md:w-1/2 text-center md:text-left">
+          <div className="flex flex-col mx-auto text-center justify-center h-full md:w-1/2 md:text-left md:mx-0 md:-mt-12 lg:mt-0 md:pl-8">
             <motion.h1
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-5xl md:text-6xl font-bold my-4"
+              className="text-white sm:mr-10 text-3xl sm:text-xl md:text-2xl lg:text-5xl font-bold my-5 mb-8"
             >
-              <span className={!darkMode ? "text-white" : "text-black"}>
-                Reliable,
-              </span>{" "}
-              <span className="text-blue-500">Fast,</span>{" "}
-              <span className={!darkMode ? "text-white" : "text-black"}>
-                Global.
-              </span>
+              Reliable,
+              <span className="text-blue-500"> Fast,</span>{" "}
+              <span className="text-white">Global.</span>
             </motion.h1>
             <motion.p
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-              className="text-white text-2xl mb-6"
+              className="text-white text-base sm:text-2xl mb-4 [@media(min-width:768px)_and_(max-width:1023px)]:text-sm"
             >
               NomsoLogistics provides fast, reliable, and global logistics
               solutions, designed to move your business forward with precision
@@ -98,29 +91,32 @@ const HeroSection = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
             >
-              <a href="#services">
+              <a href="/services">
                 <Button
                   text="Explore Services"
-                  className={`bg-cyan-600 px-6 py-3 rounded-full hover:bg-cyan-700 font-semibold cursor-pointer ${
-                    !darkMode ? "text-white" : "text-black"
-                  }`}
+                  className={`bg-cyan-600 px-8 py-3 mt-4 rounded-full hover:bg-cyan-700 font-semibold cursor-pointer`}
                 />
               </a>
             </motion.div>
           </div>
-          <div className="flex justify-center items-center md:w-1/2 h-full">
-            <div className="relative mt-5 ml-36">
+          <div className="flex justify-center items-center md:w-1/2 w-full h-full">
+            <div
+              className="relative w-[95vw] sm:w-[400px] md:w-[450px] md:mr-8 mx-auto mt-8 md:mt-1 lg:mt-1
+    [@media(min-width:768px)_and_(max-width:1023px)]:-mt-1
+    [@media(min-width:768px)_and_(max-width:1023px)]:ml-10
+    [@media(min-width:1024px)_and_(max-width:1279px)]:-mt-18
+    [@media(min-width:1024px)_and_(max-width:1279px)]:ml-14"
+            >
               <img
                 src={logistics2}
                 alt="logistics"
-                className="w-100 h-100 object-cover rounded-2xl shadow-lg"
+                className="w-[95vw] sm:w-full h-auto object-cover rounded-2xl shadow-lg
+        [@media(min-width:768px)_and_(max-width:1023px)]:w-[300px]
+        [@media(min-width:768px)_and_(max-width:1023px)]:h-[330px]
+        [@media(min-width:1024px)_and_(max-width:1279px)]:w-[400px]"
               />
               <div className="absolute inset-0 flex items-start justify-center pt-10">
-                <span
-                  className={`text-3xl font-['Playfair_Display'] italic tracking-wider px-4 rounded-xl ${
-                    !darkMode ? "text-white" : "text-black"
-                  }`}
-                >
+                <span className="text-white text-2xl sm:text-xl md:text-2xl lg:text-3xl font-['Playfair_Display'] italic tracking-wider px-4 rounded-xl">
                   NomsoLogistics
                 </span>
               </div>
@@ -128,20 +124,11 @@ const HeroSection = () => {
           </div>
         </div>
       </section>
-      <section
-        id="features"
-        className={`py-20 w-full ${
-          darkMode ? "bg-slate-200 text-black" : "bg-white text-gray-900"
-        }`}
-      >
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-6">Our Services</h2>
-          <p className="text-lg mb-10">
-            We provide fast, secure, and affordable shipping services across
-            Nigeria. Whether you're sending a parcel from Abuja, Lagos, or Port
-            Harcourt, we ensure safe delivery to any city nationwide with a
-            variety of cost-effective options to suit your needs.
-          </p>
+      <section id="features" className={`py-20 w-full`}>
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-2xl sm:text-xl md:text-2xl lg:text-4xl md:mb-13 font-bold -mt-10 mb-8">
+            Our Services
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
             <div className="p-6 rounded-lg bg-blue-100 shadow-md">
               <h3 className="text-xl font-semibold mb-2">
@@ -204,14 +191,9 @@ const HeroSection = () => {
           </div>
         </div>
       </section>
-      <section
-        id="features"
-        className={`py-2 w-full ${
-          darkMode ? "bg-slate-200 text-black" : "bg-white text-gray-900"
-        }`}
-      >
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+      <section id="features" className={`py-1 w-full `}>
+        <div className="max-w-7xl mx-auto px-2 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-left">
             <div className="border border-gray-400 p-6 rounded-lg bg-white shadow-md">
               <h3 className="text-xl font-semibold mb-2">
                 Total Bookings{" "}
@@ -255,16 +237,16 @@ const HeroSection = () => {
         </div>
       </section>
       <section id="features" className={`bg-slate-600 py-12 w-full mt-10`}>
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-10 text-white">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-2xl sm:text-xl md:text-2xl lg:text-4xl font-bold mb-10 text-white">
             Why Choose NomsoLogistics?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
             <div className="p-6 rounded-lg bg-blue-100 shadow-md">
               <h3 className="text-xl font-semibold mb-2">
                 <FontAwesomeIcon
                   icon={faCheckCircle}
-                  className="text-blue-500 mr-2"
+                  className="text-blue-500 mr-2 text-4xl"
                 />
                 Fully Registered in Nigeria
               </h3>
@@ -277,7 +259,7 @@ const HeroSection = () => {
               <h3 className="text-xl font-semibold mb-2">
                 <FontAwesomeIcon
                   icon={faCheckCircle}
-                  className="text-blue-500 mr-2"
+                  className="text-blue-500 mr-2 text-4xl"
                 />
                 Professional Team
               </h3>
@@ -290,7 +272,7 @@ const HeroSection = () => {
               <h3 className="text-xl font-semibold mb-2">
                 <FontAwesomeIcon
                   icon={faCheckCircle}
-                  className="text-blue-500 mr-2"
+                  className="text-blue-500 mr-2 text-4xl"
                 />
                 Top-Tier Service Delivery
               </h3>
@@ -303,7 +285,7 @@ const HeroSection = () => {
               <h3 className="text-xl font-semibold mb-2">
                 <FontAwesomeIcon
                   icon={faCheckCircle}
-                  className="text-blue-500 mr-2"
+                  className="text-blue-500 mr-2 text-4xl"
                 />
                 Outstanding Customer Support
               </h3>
@@ -317,12 +299,12 @@ const HeroSection = () => {
       </section>
       <section id="features" className={`py-12 w-full mt-2`}>
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-5 text-black">
+          <h2 className="text-2xl sm:text-xl md:text-2xl lg:text-4xl font-bold mb-5 text-black">
             Let's Get Moving
           </h2>
           <p className="text-lg mb-8">
             Whether you're shipping locally or internationally, trust
-            Pickupmanng for speed, safety, and service excellence.
+            NomsoLogistics for speed, safety, and service excellence.
           </p>
 
           <div className="flex justify-center flex-wrap gap-8 text-center">
@@ -349,7 +331,7 @@ const HeroSection = () => {
                 className={`bg-gray-200 text-black px-6 py-3 rounded-xl border border-black hover:bg-cyan-700 font-semibold cursor-pointer`}
               />
             </a>
-            <a href="#services">
+            <a href="/Tracking">
               <Button
                 text={
                   <span className="flex items-center gap-2">
@@ -365,17 +347,18 @@ const HeroSection = () => {
       </section>
       <section
         id="home"
-        className="relative h-[770px] overflow-hidden bg-slate-600 w-full"
+        className="relative min-h-screen sm:min-h-[600px] md:min-h-[750px] lg:min-h-[800px] overflow-hidden bg-slate-600 w-full"
       >
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-4xl font-bold mt-10 mb-3 text-white">Contact Us</h2>
+        <div className="max-w-7xl mx-auto text-center">
+          <h2 className="text-2xl sm:text-xl md:text-2xl lg:text-4xl font-bold md:mt-10 md:mb-5 mt-10 sm:mt-5 text-white">
+            Contact Us
+          </h2>
           <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between w-full h-full px-6 py-10 md:py-0">
-            {/* Left: Text */}
-            <div className="flex flex-col justify-center h-full mt-5 md:w-1/2 text-center md:text-left">
-              <h2 className="text-4xl font-semibold mb-4 text-white">
+            <div className="flex flex-col justify-center h-full mt-[-26px] md:mt-5 md:w-1/2 text-center md:text-left">
+              <h2 className="text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold mb-2 text-white">
                 Reach out to us today!
               </h2>
-              <p className="text-white text-xl mb-4">
+              <p className="text-white text-lg sm:text-xl md:text-lg lg:text-xl mb-4">
                 We are here to assist you with all your logistics and shipment
                 needs.
                 <br /> Please feel free to reach out to us through any of the
@@ -388,9 +371,7 @@ const HeroSection = () => {
                       <FontAwesomeIcon icon={faPhone} className="mt-1" />
                       <span className="flex flex-col leading-tight">
                         <span className="font-semibold">Phone</span>
-                        <span className="text-gray-600">
-                          +234 687 7654 8765
-                        </span>
+                        <span className="text-gray-600">+234 809 944 4201</span>
                       </span>
                     </span>
                   }
@@ -404,14 +385,16 @@ const HeroSection = () => {
                       <FontAwesomeIcon icon={faEnvelope} className="mt-1" />
                       <span className="flex flex-col leading-tight">
                         <span className="font-semibold">Email</span>
-                        <span className="text-gray-600">admin@gmail.com</span>
+                        <span className="text-gray-600">
+                          ndukwenomso@gmail.com
+                        </span>
                       </span>
                     </span>
                   }
                   className={`w-full bg-white text-black px-6 py-3 rounded-xl border border-black hover:bg-cyan-700 font-semibold cursor-pointer`}
                 />
               </a>
-              <div className="w-full bg-white text-black px-6 py-3 mb-4 rounded-xl border border-black flex items-start justify-items-start gap-6">
+              <div className="w-full bg-white text-black px-6 py-3 mb-4 rounded-xl border border-black flex justify-center sm:justify-start items-center gap-6">
                 <a
                   href="https://facebook.com"
                   target="_blank"
@@ -424,7 +407,7 @@ const HeroSection = () => {
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-pink-500 transition-colors  bg-orange-500 px-3 py-2 rounded-2xl"
+                  className="hover:text-pink-500 transition-colors bg-orange-500 px-3 py-2 rounded-2xl"
                 >
                   <FontAwesomeIcon icon={faInstagram} className="text-xl" />
                 </a>
@@ -432,12 +415,12 @@ const HeroSection = () => {
                   href="https://twitter.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-400 transition-colors  bg-gray-500 px-3 py-2 rounded-2xl"
+                  className="hover:text-blue-400 transition-colors bg-gray-500 px-3 py-2 rounded-2xl"
                 >
                   <FontAwesomeIcon icon={faTwitter} className="text-xl" />
                 </a>
               </div>
-              <p className="text-white text-xl leading-relaxed">
+              <p className="text-white text-lg sm:text-xl md:text-lg lg:text-xl leading-relaxed">
                 <strong>Business Hours</strong>
                 <br />
                 Monday - Friday: 9:00 AM - 5:00 PM
@@ -448,7 +431,7 @@ const HeroSection = () => {
               </p>
             </div>
             <div className="flex justify-center items-center md:w-1/2 h-full">
-              <div className="relative mt-5 ml-36">
+              <div className="relative mt-5 ml-0 md:ml-5 lg:ml-36 w-full">
                 <ContactusForm />
               </div>
             </div>
@@ -457,17 +440,17 @@ const HeroSection = () => {
       </section>
       <section
         id="home"
-        className="relative h-[270px] overflow-hidden bg-slate-900 w-full"
+        className="relative h-[855px] sm:h-[280px] [@media(width:375px)]:h-[820px] [@media(width:425px)]:h-[780px] [@media(min-width:768px)_and_(max-width:1023px)]:h-[320px] overflow-hidden bg-slate-900 w-full"
       >
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between w-full h-full px-6 py-10 md:py-0">
+        {" "}
+        <div className="max-w-9xl mx-auto text-center">
+          <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between w-full h-full px-8 py-3 md:py-0">
             <div className="flex justify-center items-center md:w-1/2 h-full">
-              <div className="relative mt-5">
+              <div className="relative mt-1">
                 <NewsletterCard />
               </div>
             </div>
-            {/* Left: Text */}
-            <div className="flex flex-col justify-center ml-20 h-full mt-5 md:w-1/2 text-center md:text-left">
+            <div className="flex flex-col justify-center items-center mt-5 h-full w-full text-center md:text-left md:items-start md:ml-5 md:w-1/2">
               <Footer />
             </div>
           </div>

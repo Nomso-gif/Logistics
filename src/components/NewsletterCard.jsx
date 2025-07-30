@@ -2,7 +2,7 @@ import Button from "./Button";
 
 const NewsletterCard = () => {
   return (
-    <div className="bg-purple-200 shadow-md rounded-xl p-6 max-w-lg mx-auto text-center mt-10">
+    <div className="bg-gray-200 shadow-md rounded-xl p-4 max-w-lg mx-auto text-center mt-13">
       <h2 className="text-2xl font-bold text-gray-800 mb-2">Subscribe to our Newsletter</h2>
       <p className="text-gray-600 mb-4">
         Get the latest updates, exclusive offers, and logistics tips directly to your inbox.

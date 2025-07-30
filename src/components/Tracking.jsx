@@ -1,8 +1,10 @@
-import React from 'react'
+import TrackGoods from './TrackGoods' 
 
 const Tracking = () => {
   return (
-    <div>Tracking</div>
+    <div>
+      <TrackGoods />
+    </div>
   )
 }
 

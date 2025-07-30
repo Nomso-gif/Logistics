@@ -4,10 +4,13 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import About from "./components/About";
 import Tracking from "./components/Tracking";
+import GetQuotes from "./components/GetQuotes";
 import Contact from "./components/Contact";
 import Services from "./components/Services";
 import Navbar from "./components/Navbar";
-// import Footer from "./components/Footer";
+import Login from "./components/Login";
+import Register from "./components/Register";
+
 
 const App = () => {
   const [show, setShow] = useState(false);
@@ -21,14 +24,16 @@ const App = () => {
       }`}
     >
       <Navbar />
-       <Routes>
+      <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Tracking />} />
+        <Route path="/tracking" element={<Tracking />} />
+        <Route path="/getquotes" element={<GetQuotes />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
-      {/* <Footer /> */}
     </div>
   );
 };
