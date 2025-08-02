@@ -15,13 +15,13 @@ const GetQuotesRates = () => {
 
   const countries = Country.getAllCountries();
 
-  // Mock rate calculation
+  // Rate calculation
   const calculateRate = (weightVal, from, to) => {
     if (!weightVal || !from || !to) return 0;
 
     const baseRate = 500; // ₦ base
     const costPerKg = 200; // ₦ per kg
-    const internationalMultiplier = from !== to ? 1.5 : 1; // Extra for cross-country
+    const internationalMultiplier = from !== to ? 1.5 : 1; // Add extra 0.5 for cross-country
 
     return baseRate + weightVal * costPerKg * internationalMultiplier;
   };

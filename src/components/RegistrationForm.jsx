@@ -3,7 +3,7 @@ import Button from "./Button";
 import PhoneInput from "react-phone-input-2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import "react-phone-input-2/lib/style.css";
+import 'react-phone-input-2/lib/style.css';
 import sign from "../assets/sign.jpg";
 
 const RegistrationForm = () => {
