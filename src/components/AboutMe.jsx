@@ -95,7 +95,7 @@ const AboutMe = () => {
             About Nomso
             <br /> Logistics
           </h1>
-          <p className="text-xl sm:text-xl md:text-2xl lg:text-4xl dark:text-white mb-4 leading-relaxed">
+          <p className="text-xl sm:text-xl md:text-2xl lg:text-4xl text-white mb-4 leading-relaxed">
             Reliable. Fast. Global.
           </p>
           <div>

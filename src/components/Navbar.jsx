@@ -67,7 +67,7 @@ const Navbar = () => {
           <Link to="/tracking" onClick={() => setMenuOpen(false)}>
             Tracking
           </Link>
-          <Link to="/get quotes" onClick={() => setMenuOpen(false)}>
+          <Link to="/getquotes" onClick={() => setMenuOpen(false)}>
             Get Quotes
           </Link>
           <Link to="/services" onClick={() => setMenuOpen(false)}>

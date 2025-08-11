@@ -50,8 +50,6 @@ const CountUpNumber = ({ target, duration = 1000 }) => {
 };
 
 const HeroSection = () => {
-  // const { darkMode } = useContext(ThemeContext);
-
   return (
     <>
       <section
@@ -100,20 +98,11 @@ const HeroSection = () => {
             </motion.div>
           </div>
           <div className="flex justify-center items-center md:w-1/2 w-full h-full">
-            <div
-              className="relative w-[95vw] sm:w-[400px] md:w-[450px] md:mr-8 mx-auto mt-8 md:mt-1 lg:mt-1
-    [@media(min-width:768px)_and_(max-width:1023px)]:-mt-1
-    [@media(min-width:768px)_and_(max-width:1023px)]:ml-10
-    [@media(min-width:1024px)_and_(max-width:1279px)]:-mt-18
-    [@media(min-width:1024px)_and_(max-width:1279px)]:ml-14"
-            >
+            <div className="relative w-[95vw] sm:w-[400px] md:w-[450px] md:mr-8 mx-auto mt-8 md:mt-1 lg:mt-1 [@media(min-width:768px)_and_(max-width:1023px)]:-mt-1 [@media(min-width:768px)_and_(max-width:1023px)]:ml-10 [@media(min-width:1024px)_and_(max-width:1279px)]:-mt-18 [@media(min-width:1024px)_and_(max-width:1279px)]:ml-14">
               <img
                 src={logistics2}
                 alt="logistics"
-                className="w-[95vw] sm:w-full h-auto object-cover rounded-2xl shadow-lg
-        [@media(min-width:768px)_and_(max-width:1023px)]:w-[300px]
-        [@media(min-width:768px)_and_(max-width:1023px)]:h-[330px]
-        [@media(min-width:1024px)_and_(max-width:1279px)]:w-[400px]"
+                className="w-[95vw] sm:w-full h-auto object-cover rounded-2xl shadow-lg [@media(min-width:768px)_and_(max-width:1023px)]:w-[300px] [@media(min-width:768px)_and_(max-width:1023px)]:h-[330px] [@media(min-width:1024px)_and_(max-width:1279px)]:w-[400px]"
               />
               <div className="absolute inset-0 flex items-start justify-center pt-10">
                 <span className="text-white text-2xl sm:text-xl md:text-2xl lg:text-3xl font-['Playfair_Display'] italic tracking-wider px-4 rounded-xl">
@@ -353,8 +342,8 @@ const HeroSection = () => {
           <h2 className="text-2xl sm:text-xl md:text-2xl lg:text-4xl font-bold md:mt-10 md:mb-5 mt-10 sm:mt-5 text-white">
             Contact Us
           </h2>
-          <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between w-full h-full px-6 py-10 md:py-0">
-            <div className="flex flex-col justify-center h-full mt-[-26px] md:mt-5 md:w-1/2 text-center md:text-left">
+          <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between w-full h-full px-0 sm:px-6 py-10 md:py-0">
+            <div className="flex flex-col justify-center h-full mt-[-26px] md:mt-5 md:w-1/2 text-center md:text-left mx-4 sm:mx-0">
               <h2 className="text-xl sm:text-xl md:text-2xl lg:text-4xl font-semibold mb-2 text-white">
                 Reach out to us today!
               </h2>
@@ -375,7 +364,7 @@ const HeroSection = () => {
                       </span>
                     </span>
                   }
-                  className={`w-full bg-white text-black px-6 py-3 rounded-xl border border-black hover:bg-cyan-700 font-semibold cursor-pointer`}
+                  className="w-full bg-white text-black px-6 py-3 rounded-xl border border-black hover:bg-cyan-700 font-semibold cursor-pointer"
                 />
               </a>
               <a href="#services" className="mb-4 w-full">
@@ -391,7 +380,7 @@ const HeroSection = () => {
                       </span>
                     </span>
                   }
-                  className={`w-full bg-white text-black px-6 py-3 rounded-xl border border-black hover:bg-cyan-700 font-semibold cursor-pointer`}
+                  className="w-full bg-white text-black px-6 py-3 rounded-xl border border-black hover:bg-cyan-700 font-semibold cursor-pointer"
                 />
               </a>
               <div className="w-full bg-white text-black px-6 py-3 mb-4 rounded-xl border border-black flex justify-center sm:justify-start items-center gap-6">
@@ -431,7 +420,10 @@ const HeroSection = () => {
               </p>
             </div>
             <div className="flex justify-center items-center md:w-1/2 h-full">
-              <div className="relative mt-5 ml-0 md:ml-5 lg:ml-36 w-full">
+              <div
+                className="relative mt-5 w-[calc(100vw-2rem)] mx-4 sm:w-[80%] sm:mx-auto md:w-[95%] md:mx-auto 
+              md:ml-10 max-w-full"
+              >
                 <ContactusForm />
               </div>
             </div>
@@ -440,17 +432,19 @@ const HeroSection = () => {
       </section>
       <section
         id="home"
-        className="relative h-[855px] sm:h-[280px] [@media(width:375px)]:h-[820px] [@media(width:425px)]:h-[780px] [@media(min-width:768px)_and_(max-width:1023px)]:h-[320px] overflow-hidden bg-slate-900 w-full"
+        className="relative bg-slate-900 w-full min-h-[200px] max-h-[860px] sm:min-h-[250px] 
+      sm:max-h-none [@media(width:375px)]:h-[845px] [@media(width:425px)]:h-[815px] [@media(width:768px)]:h-[460px] md:min-h-[150px] lg:min-h-[200px] overflow-hidden"
       >
-        {" "}
-        <div className="max-w-9xl mx-auto text-center">
-          <div className="relative z-10 flex flex-col md:flex-row items-center md:items-start justify-between w-full h-full px-8 py-3 md:py-0">
-            <div className="flex justify-center items-center md:w-1/2 h-full">
-              <div className="relative mt-1">
+        <div className="max-w-[90rem] mx-auto text-center px-4 lg:px-6">
+          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between w-full h-full px-4 sm:px-6 md:px-2 lg:px-6 py-2 md:py-1 [@media(min-width:768px)_and_(max-width:1023px)]:px-0">
+            {/* Newsletter */}
+            <div className="flex justify-center items-center w-full md:mt-1 lg:mt-3 [@media(min-width:768px)_and_(max-width:1023px)]:justify-start">
+              <div className="relative mb-1 lg:mr-10 lg:mb-9 w-full md:w-[95%] lg:w-full [@media(min-width:768px)_and_(max-width:1023px)]:w-full [@media(min-width:1024px)_and_(max-width:1279px)]:ml-4">
                 <NewsletterCard />
               </div>
             </div>
-            <div className="flex flex-col justify-center items-center mt-5 h-full w-full text-center md:text-left md:items-start md:ml-5 md:w-1/2">
+            {/* Footer */}
+            <div className="flex flex-col justify-center items-center mt-3 h-auto w-full text-center md:text-left md:items-start md:w-full lg:w-1/2 lg:ml-5 md:mt-2 lg:mt-3 [@media(min-width:768px)_and_(max-width:1023px)]:ml-0 [@media(min-width:768px)_and_(max-width:1023px)]:w-full">
               <Footer />
             </div>
           </div>

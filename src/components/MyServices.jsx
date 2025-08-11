@@ -37,7 +37,7 @@ const MyServices = () => {
           <h3 className="text-xl sm:text-xl md:text-2xl lg:text-2xl text-white mb-3">
             Nigeria's Leading Logistics Solutions Provider
           </h3>
-          <p className="text-lg sm:text-lg md:text-xl lg:text-xl dark:text-white mb-4 leading-relaxed">
+          <p className="text-lg sm:text-lg md:text-xl lg:text-xl text-white mb-4 leading-relaxed">
             Since our establishment, NomsoLogistics has been at the forefront of
             revolutionizing <br /> logistics services in Nigeria and beyond,
             providing reliable, efficient, and cost- <br /> effective shipping

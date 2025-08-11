@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "./components/ThemeProvider";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
@@ -10,11 +10,11 @@ import Services from "./components/Services";
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import Register from "./components/Register";
-
-
+import ScrollToTop from "./components/ScrollToTop"; 
 const App = () => {
   const [show, setShow] = useState(false);
-  const { darkMode, toggleTheme } = useContext(ThemeContext);
+  const { darkMode } = useContext(ThemeContext);
+
   return (
     <div
       className={`${
@@ -24,6 +24,7 @@ const App = () => {
       }`}
     >
       <Navbar />
+      <ScrollToTop /> 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
