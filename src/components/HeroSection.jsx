@@ -27,6 +27,7 @@ import ContactusForm from "./ContactusForm";
 import NewsletterCard from "./NewsletterCard";
 import Footer from "./Footer";
 import FooterBottom from "./FooterBottom";
+import { Link } from "react-router-dom";
 
 const CountUpNumber = ({ target, duration = 1000 }) => {
   const [count, setCount] = useState(0);
@@ -48,8 +49,13 @@ const CountUpNumber = ({ target, duration = 1000 }) => {
 
   return <span>{count}</span>;
 };
-
 const HeroSection = () => {
+  const [expanded, setExpanded] = useState(null);
+
+  const toggleExpand = (service) => {
+    setExpanded((prev) => (prev === service ? null : service));
+  };
+
   return (
     <>
       <section
@@ -89,12 +95,12 @@ const HeroSection = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 1.2, ease: "easeOut", delay: 0.4 }}
             >
-              <a href="/services">
+              <Link to="/services">
                 <Button
                   text="Explore Services"
-                  className={`bg-cyan-600 px-8 py-3 mt-4 rounded-full hover:bg-cyan-700 font-semibold cursor-pointer`}
+                  className="bg-cyan-600 px-8 py-3 mt-4 rounded-full hover:bg-cyan-700 font-semibold cursor-pointer"
                 />
-              </a>
+              </Link>
             </motion.div>
           </div>
           <div className="flex justify-center items-center md:w-1/2 w-full h-full">
@@ -119,6 +125,7 @@ const HeroSection = () => {
             Our Services
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+            {/* Interstate Deliveries */}
             <div className="p-6 rounded-lg bg-blue-100 shadow-md">
               <h3 className="text-xl font-semibold mb-2">
                 <FontAwesomeIcon
@@ -133,21 +140,32 @@ const HeroSection = () => {
                 Port Harcourt, we ensure safe delivery to any city nationwide
                 with a variety of cost-effective options to suit your needs.
               </p>
-              <a href="#services">
-                <Button
-                  text={
-                    <span className="flex items-center gap-2">
-                      Learn More{" "}
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="text-blue-500"
-                      />
-                    </span>
-                  }
-                  className="text-blue-500 mt-4 px-4 py-1 border border-gray-400 font-semibold cursor-pointer"
-                />
-              </a>
+
+              {expanded === "interstate" && (
+                <p className="mt-2">
+                  Our interstate delivery service also includes real-time
+                  tracking, doorstep pickup, and priority handling for fragile
+                  items. You can choose same-day or next-day delivery depending
+                  on urgency.
+                </p>
+              )}
+
+              <Button
+                onClick={() => toggleExpand("interstate")}
+                text={
+                  <span className="flex items-center gap-2">
+                    {expanded === "interstate" ? "Show Less" : "Learn More"}
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="text-blue-500"
+                    />
+                  </span>
+                }
+                className="text-blue-500 mt-4 px-4 py-1 border border-gray-400 font-semibold cursor-pointer"
+              />
             </div>
+
+            {/* International Shipping */}
             <div className="p-6 rounded-lg bg-blue-100 shadow-md">
               <h3 className="text-xl font-semibold mb-2">
                 <FontAwesomeIcon
@@ -162,20 +180,29 @@ const HeroSection = () => {
                 speeds. Choose from our Express, Saver, or Cargo options to meet
                 your timeline and budget.
               </p>
-              <a href="#services">
-                <Button
-                  text={
-                    <span className="flex items-center gap-2">
-                      Learn More{" "}
-                      <FontAwesomeIcon
-                        icon={faArrowRight}
-                        className="text-blue-500"
-                      />
-                    </span>
-                  }
-                  className="text-blue-500 mt-4 px-4 py-1 border border-gray-400 font-semibold cursor-pointer"
-                />
-              </a>
+
+              {/* Expanded content */}
+              {expanded === "international" && (
+                <p className="mt-2">
+                  With our international network, you also get customs support,
+                  shipment insurance, and multiple courier options to make sure
+                  your goods arrive safely at their destination.
+                </p>
+              )}
+
+              <Button
+                onClick={() => toggleExpand("international")}
+                text={
+                  <span className="flex items-center gap-2">
+                    {expanded === "international" ? "Show Less" : "Learn More"}
+                    <FontAwesomeIcon
+                      icon={faArrowRight}
+                      className="text-blue-500"
+                    />
+                  </span>
+                }
+                className="text-blue-500 mt-4 px-4 py-1 border border-gray-400 font-semibold cursor-pointer"
+              />
             </div>
           </div>
         </div>
@@ -297,7 +324,7 @@ const HeroSection = () => {
           </p>
 
           <div className="flex justify-center flex-wrap gap-8 text-center">
-            <a href="#services">
+            <Link to="/getquotes">
               <Button
                 text={
                   <span className="flex items-center gap-2">
@@ -305,11 +332,14 @@ const HeroSection = () => {
                     Get Quote
                   </span>
                 }
-                className={`bg-gray-200 text-black px-6 py-3 rounded-xl border border-black hover:bg-cyan-700 font-semibold cursor-pointer`}
+                className="bg-gray-200 text-black px-6 py-3 rounded-xl border border-black hover:bg-cyan-700 font-semibold cursor-pointer"
               />
-            </a>
-
-            <a href="#services">
+            </Link>
+            <a
+              href="https://wa.me/2347085580475" // replace with your WhatsApp number
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 text={
                   <span className="flex items-center gap-2">
@@ -317,10 +347,10 @@ const HeroSection = () => {
                     Chat with us
                   </span>
                 }
-                className={`bg-gray-200 text-black px-6 py-3 rounded-xl border border-black hover:bg-cyan-700 font-semibold cursor-pointer`}
+                className="bg-gray-200 text-black px-6 py-3 rounded-xl border border-black hover:bg-cyan-700 font-semibold cursor-pointer"
               />
             </a>
-            <a href="/Tracking">
+            <Link to="/Tracking">
               <Button
                 text={
                   <span className="flex items-center gap-2">
@@ -328,9 +358,9 @@ const HeroSection = () => {
                     Track Shipment
                   </span>
                 }
-                className={`bg-gray-200 text-black px-6 py-3 rounded-xl border border-black hover:bg-cyan-700 font-semibold cursor-pointer`}
+                className="bg-gray-200 text-black px-6 py-3 rounded-xl border border-black hover:bg-cyan-700 font-semibold cursor-pointer"
               />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -360,7 +390,7 @@ const HeroSection = () => {
                       <FontAwesomeIcon icon={faPhone} className="mt-1" />
                       <span className="flex flex-col leading-tight">
                         <span className="font-semibold">Phone</span>
-                        <span className="text-gray-600">+234 809 944 4201</span>
+                        <span className="text-gray-600">+234 708 558 0475</span>
                       </span>
                     </span>
                   }
@@ -375,7 +405,7 @@ const HeroSection = () => {
                       <span className="flex flex-col leading-tight">
                         <span className="font-semibold">Email</span>
                         <span className="text-gray-600">
-                          ndukwenomso@gmail.com
+                          ndukwenomso@yahoo.com
                         </span>
                       </span>
                     </span>

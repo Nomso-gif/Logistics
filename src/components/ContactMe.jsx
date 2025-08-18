@@ -73,7 +73,7 @@ const ContactMe = () => {
               </p>
               <p className="text-white text-base mt-4 flex items-center justify-center gap-2">
                 <FontAwesomeIcon icon={faEnvelope} className="text-white" />
-                ndukwenomso@gmail.com
+                ndukwenomso@yahoo.com
               </p>
             </div>
 
@@ -93,11 +93,11 @@ const ContactMe = () => {
               <div className="mt-4 space-y-2 text-base">
                 <p className="flex items-center justify-center gap-2 text-black">
                   <FontAwesomeIcon icon={faPhone} />
-                  +234 814 668 4422
+                  +234 708 558 0475
                 </p>
                 <p className="flex items-center justify-center gap-2 text-black">
                   <FontAwesomeIcon icon={faEnvelope} />
-                  ndukwenomso@gmail.com
+                  ndukwenomso@yahoo.com
                 </p>
               </div>
             </div>
@@ -217,7 +217,7 @@ const ContactMe = () => {
               </p>
               <p className="text-black mt-3">
                 <FontAwesomeIcon icon={faPhone} className="text-black mr-2" />
-                +234 814 668 4422
+                +234 708 558 0475
               </p>
               <p className="text-black mt-3">
                 <FontAwesomeIcon icon={faClock} className="text-black mr-2" />
@@ -246,7 +246,7 @@ const ContactMe = () => {
               </p>
               <p className="text-black mt-3">
                 <FontAwesomeIcon icon={faPhone} className="text-black mr-2" />
-                +234 814 668 4422
+                +234 708 558 0475
               </p>
               <p className="text-black mt-3">
                 <FontAwesomeIcon icon={faClock} className="text-black mr-2" />
@@ -276,7 +276,7 @@ const ContactMe = () => {
               </p>
               <p className="text-black mt-3">
                 <FontAwesomeIcon icon={faPhone} className="text-black mr-2" />
-                +234 814 668 4422
+                +234 708 558 0475
               </p>
               <p className="text-black mt-3">
                 <FontAwesomeIcon icon={faClock} className="text-black mr-2" />

@@ -19,6 +19,7 @@ import about1 from "../assets/about1.jpg";
 import map1 from "../assets/map1.jpg";
 import globe from "../assets/globe.jpg";
 import Accordion from "./Accordion";
+import { Link } from "react-router-dom";
 import NewsletterCard from "./NewsletterCard";
 import Footer from "./Footer";
 import FooterBottom from "./FooterBottom";
@@ -99,12 +100,12 @@ const AboutMe = () => {
             Reliable. Fast. Global.
           </p>
           <div>
-            <a href="#services">
+            <Link to="/getquotes">
               <Button
                 text="Get a Quote"
                 className="bg-cyan-600 px-6 py-3 rounded-full hover:bg-cyan-700 font-semibold cursor-pointer"
               />
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -13,6 +13,8 @@ const GetQuotesRates = () => {
   const [weight, setWeight] = useState("");
   const [estimatedRate, setEstimatedRate] = useState(0);
 
+  const [quoteDetails, setQuoteDetails] = useState(null); // Store final result
+
   const countries = Country.getAllCountries();
 
   // Rate calculation
@@ -33,16 +35,63 @@ const GetQuotesRates = () => {
     setEstimatedRate(calculateRate(val, fromCountry, toCountry));
   };
 
+  // Handle form submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const rate = calculateRate(weight, fromCountry, toCountry);
+
+    setQuoteDetails({
+      from: {
+        country: Country.getCountryByCode(fromCountry)?.name || "",
+        state: State.getStateByCodeAndCountry(fromState, fromCountry)?.name || "",
+        city: fromCity,
+      },
+      to: {
+        country: Country.getCountryByCode(toCountry)?.name || "",
+        state: State.getStateByCodeAndCountry(toState, toCountry)?.name || "",
+        city: toCity,
+      },
+      weight,
+      rate,
+    });
+  };
+
+  // Handle Print
+  const handlePrint = () => {
+    const printContent = document.getElementById("quote-summary").innerHTML;
+    const printWindow = window.open("", "", "width=600,height=600");
+    printWindow.document.write("<html><head><title>Print Quote</title></head><body>");
+    printWindow.document.write(printContent);
+    printWindow.document.write("</body></html>");
+    printWindow.document.close();
+    printWindow.print();
+  };
+
+  // Handle Close
+  const handleClose = () => {
+    setQuoteDetails(null);
+    setFromCountry("");
+    setFromState("");
+    setFromCity("");
+    setToCountry("");
+    setToState("");
+    setToCity("");
+    setWeight("");
+    setEstimatedRate(0);
+  };
+
   return (
     <section className="relative bg-slate-900 py-10 px-6 w-full">
       <div className="max-w-2xl mx-auto bg-white p-8 rounded-2xl shadow-xl">
         <h2 className="text-2xl font-bold mb-6 text-center">Get Shipping Quote</h2>
-        <form className="space-y-6">
-
+        
+        <form onSubmit={handleSubmit} className="space-y-6">
           {/* From Section */}
           <div className="border border-gray-300 rounded-lg shadow-xl p-4">
             <h3 className="text-lg font-semibold mb-3">From</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {/* Country */}
               <select
                 value={fromCountry}
                 onChange={(e) => {
@@ -61,6 +110,7 @@ const GetQuotesRates = () => {
                 ))}
               </select>
 
+              {/* State */}
               <select
                 value={fromState}
                 onChange={(e) => {
@@ -79,6 +129,7 @@ const GetQuotesRates = () => {
                   ))}
               </select>
 
+              {/* City */}
               <select
                 value={fromCity}
                 onChange={(e) => setFromCity(e.target.value)}
@@ -100,6 +151,7 @@ const GetQuotesRates = () => {
           <div className="border border-gray-300 rounded-lg shadow-xl p-4">
             <h3 className="text-lg font-semibold mb-3">To</h3>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {/* Country */}
               <select
                 value={toCountry}
                 onChange={(e) => {
@@ -118,6 +170,7 @@ const GetQuotesRates = () => {
                 ))}
               </select>
 
+              {/* State */}
               <select
                 value={toState}
                 onChange={(e) => {
@@ -136,6 +189,7 @@ const GetQuotesRates = () => {
                   ))}
               </select>
 
+              {/* City */}
               <select
                 value={toCity}
                 onChange={(e) => setToCity(e.target.value)}
@@ -165,13 +219,6 @@ const GetQuotesRates = () => {
             />
           </div>
 
-          {/* Show Estimated Rate */}
-          {estimatedRate > 0 && (
-            <div className="bg-green-100 text-green-800 p-3 rounded-lg text-center font-semibold">
-              Estimated Rate: ₦{estimatedRate.toLocaleString()}
-            </div>
-          )}
-
           {/* Button */}
           <div className="flex justify-center mt-4">
             <button
@@ -182,6 +229,35 @@ const GetQuotesRates = () => {
             </button>
           </div>
         </form>
+
+        {/* Show full details after clicking */}
+        {quoteDetails && (
+          <div id="quote-summary" className="mt-6 bg-gray-100 p-4 rounded-lg">
+            <h3 className="text-lg font-bold mb-2">Quote Summary</h3>
+            <p><strong>From:</strong> {quoteDetails.from.city}, {quoteDetails.from.state}, {quoteDetails.from.country}</p>
+            <p><strong>To:</strong> {quoteDetails.to.city}, {quoteDetails.to.state}, {quoteDetails.to.country}</p>
+            <p><strong>Weight:</strong> {quoteDetails.weight} kg</p>
+            <p className="text-green-700 font-bold text-lg mt-2">
+              Estimated Rate: ₦{quoteDetails.rate.toLocaleString()}
+            </p>
+
+            {/* Action buttons */}
+            <div className="flex gap-3 mt-4">
+              <button
+                onClick={handlePrint}
+                className="bg-gray-700 text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition"
+              >
+                🖨️ Print
+              </button>
+              <button
+                onClick={handleClose}
+                className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
+              >
+                ❌ Close
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

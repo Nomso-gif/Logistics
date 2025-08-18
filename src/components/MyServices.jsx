@@ -13,6 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Button from "./Button";
 import about1 from "../assets/about1.jpg";
+import { Link } from "react-router-dom";
 import NewsletterCard from "./NewsletterCard";
 import Footer from "./Footer";
 import FooterBottom from "./FooterBottom";
@@ -44,7 +45,7 @@ const MyServices = () => {
             solutions for businesses and individuals.
           </p>
           <div>
-            <a href="/contact">
+            <Link to="/contact">
               <Button
                 text={
                   <span className="text-white flex items-center gap-2">
@@ -57,7 +58,7 @@ const MyServices = () => {
                 }
                 className={`bg-slate-900 px-8 py-3 mt-4 rounded-full hover:bg-cyan-700 font-semibold cursor-pointer`}
               />
-            </a>
+           </Link>
           </div>
         </div>
       </section>
@@ -158,7 +159,7 @@ const MyServices = () => {
                   weighed using volumetric standards
                 </p>
               </div>
-              <a href="#services">
+              <Link to="/getquotes">
                 <Button
                   text={
                     <span className="text-green-900 flex items-center gap-2">
@@ -171,7 +172,7 @@ const MyServices = () => {
                   }
                   className="text-blue-500 mt-4 px-4 py-1 font-semibold cursor-pointer"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Economy Delivery */}
@@ -198,7 +199,7 @@ const MyServices = () => {
                   deliveries outside central locations in listed cities.
                 </p>
               </div>
-              <a href="#services">
+              <Link to="/getquotes">
                 <Button
                   text={
                     <span className="text-green-900 flex items-center gap-2">
@@ -211,7 +212,7 @@ const MyServices = () => {
                   }
                   className="text-blue-500 mt-4 px-4 py-1 font-semibold cursor-pointer"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Next Day Delivery */}
@@ -231,7 +232,7 @@ const MyServices = () => {
                   deliveries outside central zones
                 </p>
               </div>
-              <a href="#services">
+              <Link to="/getquotes">
                 <Button
                   text={
                     <span className="text-green-900 flex items-center gap-2">
@@ -244,7 +245,7 @@ const MyServices = () => {
                   }
                   className="text-blue-500 mt-4 px-4 py-1 font-semibold cursor-pointer"
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -276,7 +277,7 @@ const MyServices = () => {
                   weighed using volumetric standards
                 </p>
               </div>
-              <a href="#services">
+              <Link to="/getquotes">
                 <Button
                   text={
                     <span className="text-green-900 flex items-center gap-2">
@@ -289,7 +290,7 @@ const MyServices = () => {
                   }
                   className="text-blue-500 mt-4 px-4 py-1 font-semibold cursor-pointer"
                 />
-              </a>
+              </Link>
             </div>
             <div className="p-6 rounded-lg bg-white shadow-md">
               <h1 className="text-xl font-bold mb-3">2. Economy Delivery</h1>
@@ -314,7 +315,7 @@ const MyServices = () => {
                   deliveries outside central locations in listed cities.
                 </p>
               </div>
-              <a href="#services">
+              <Link to="/getquotes">
                 <Button
                   text={
                     <span className="text-green-900 flex items-center gap-2">
@@ -327,7 +328,7 @@ const MyServices = () => {
                   }
                   className="text-blue-500 mt-4 px-4 py-1 font-semibold cursor-pointer"
                 />
-              </a>
+              </Link>
             </div>
             <div className="p-6 rounded-lg bg-white shadow-md">
               <h1 className="text-xl font-bold mb-3">3. Next Day Delivery</h1>
@@ -345,7 +346,7 @@ const MyServices = () => {
                   deliveries outside central zones
                 </p>
               </div>
-              <a href="#services">
+              <Link to="/getquotes">
                 <Button
                   text={
                     <span className="text-green-900 flex items-center gap-2">
@@ -358,7 +359,7 @@ const MyServices = () => {
                   }
                   className="text-blue-500 mt-4 px-4 py-1 font-semibold cursor-pointer"
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -375,11 +376,11 @@ const MyServices = () => {
           <div className="flex flex-col mt-3.5 sm:flex-row justify-center sm:gap-10 text-lg sm:text-xl md:text-lg lg:text-xl text-center w-full">
             <p className="text-black text-lg mt-1">
               <FontAwesomeIcon icon={faPhone} className="text-black mr-2" />
-              +234 814 668 4422
+              234 708 558 0475
             </p>
             <p className="text-black text-lg mt-1">
               <FontAwesomeIcon icon={faEnvelope} className="text-black mr-2" />
-              ndukwenomso@gmail.com
+              ndukwenomso@yahoo.com
             </p>
           </div>
         </div>
